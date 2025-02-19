@@ -19,12 +19,12 @@ Total Goals: 701 <br/>
 Most Goals: 59 (2013) <br/>
 Least Goals: 1 (2003) <br/>
 Average Yearly Goals: 33.38 (2002-2022) <br/>
-Average Monthly Goals: 2.75
-Average Weekly Goals: 0.63
-Weak Foot Goals: 111
-Free-Kick Goals: 48
-Solo Run: 2
-Penalty Goals: 129
-La Liga Goals: 311
-Champions League Goals: 140
-Unassisted Goals: 242
+Average Monthly Goals: 2.75 <br/>
+Average Weekly Goals: 0.63 <br/>
+Weak Foot Goals: 111 <br/>
+Free-Kick Goals: 48 <br/>
+Solo Run: 2 <br/>
+Penalty Goals: 129 <br/>
+La Liga Goals: 311 <br/>
+Champions League Goals: 140 <br/>
+Unassisted Goals: 242 <br/>
