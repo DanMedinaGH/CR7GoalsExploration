@@ -76,7 +76,7 @@ SELECT (COUNT(*)/COUNT(DISTINCT YEAR([date])))/12.0 AS average_monthly_goals
 FROM CR7PortfolioProject.dbo.CR7Goals
 
 --Average weekly goals
-SELECT (COUNT(*)/COUNT(DISTINCT YEAR([date])))/52.0 AS average_monthly_goals
+SELECT ROUND((COUNT(*)/COUNT(DISTINCT YEAR([date])))/52.0, 2) AS average_weekly_goals
 FROM CR7PortfolioProject.dbo.CR7Goals
 
 
@@ -85,6 +85,31 @@ SELECT [type], COUNT(*) AS total_goals
 FROM CR7PortfolioProject.dbo.CR7Goals
 GROUP BY [type]
 ORDER BY total_goals DESC
+
+--Weak-Foot Goals
+SELECT [type], COUNT(*) AS total_goals
+FROM CR7PortfolioProject.dbo.CR7Goals
+WHERE type = 'Left-footed shot'
+GROUP BY [type]
+
+--Free-Kick Goals
+SELECT [type], COUNT(*) AS total_goals
+FROM CR7PortfolioProject.dbo.CR7Goals
+WHERE type = 'Direct free kick'
+GROUP BY [type]
+
+--Solo Goals
+SELECT [type], COUNT(*) AS total_goals
+FROM CR7PortfolioProject.dbo.CR7Goals
+WHERE type = 'Solo run'
+GROUP BY [type]
+
+
+--Penalty Goals
+SELECT [type], COUNT(*) AS total_goals
+FROM CR7PortfolioProject.dbo.CR7Goals
+WHERE type = 'Penalty'
+GROUP BY [type]
 
 --Total goals by competition 
 SELECT competition, COUNT(*) AS total_goals
