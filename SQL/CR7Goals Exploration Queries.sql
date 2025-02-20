@@ -13,7 +13,6 @@ FROM CR7PortfolioProject.dbo.CR7Goals
 SELECT COUNT(*) as total_goals
 FROM CR7PortfolioProject.dbo.CR7Goals
 
-
 --Goals by year
 SELECT YEAR([date]) AS [year], COUNT(*) AS total_goals
 FROM CR7PortfolioProject.dbo.CR7Goals
@@ -182,3 +181,33 @@ WITH MainAssisterPercentage AS
 ) 
 SELECT assister, CAST(no_assists AS FLOAT)/(SELECT COUNT(*) FROM CR7PortfolioProject.dbo.CR7Goals) * 100 AS assist_percentage
 FROM MainAssisterPercentage
+
+--CR7 goals per match
+SELECT CAST([date] as DATE) [match_date], COUNT(*) [no_goals]
+FROM CR7PortfolioProject.dbo.CR7Goals
+GROUP BY CAST([date] as DATE)
+ORDER BY CAST([date] as DATE) ASC
+
+--CR7 not assisted goals
+DECLARE @not_assisted_goals INT
+=
+(
+	SELECT COUNT(*) AS no_assists
+	FROM CR7PortfolioProject.dbo.CR7Goals
+	WHERE goal_assist = 'None'
+	GROUP BY goal_assist
+)
+
+SELECT @not_assisted_goals AS not_assisted_goals
+
+--CR7 not assisted goals (excluding penalties)
+DECLARE @penalty_goals INT
+=
+(
+	SELECT COUNT(*) AS total_goals
+	FROM CR7PortfolioProject.dbo.CR7Goals
+	WHERE type = 'Penalty'
+	GROUP BY [type]
+)
+
+SELECT @not_assisted_goals - @penalty_goals not_assisted_goals_exc_pens
