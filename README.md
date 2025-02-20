@@ -28,3 +28,4 @@ Penalty Goals: 129 <br/>
 La Liga Goals: 311 <br/>
 Champions League Goals: 140 <br/>
 Unassisted Goals: 242 <br/>
+Unassisted Goals (excluding penalties): 113
